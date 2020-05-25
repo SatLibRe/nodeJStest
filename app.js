@@ -1,9 +1,14 @@
-let logger = require('./logger.js')
+const Logger = require('./logger.js')
+const path = require('path')
+const os = require('os')
+const fs = require('fs')
 
-const sayHello = (name) => {
-    console.log("Hello " + name)
-}
-
-logger.log("hello")
+const logger = new Logger()
 
 
+logger.on('messageLogged', event => {
+    console.log('Listener Called', event)
+})
+
+
+logger.log("miles")
